@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c120uf7penhrs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhfa1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1v44"]
+bg_color = Color(0.406699, 0.318765, 0.355204, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[resource]
+HSeparator/styles/separator = SubResource("StyleBoxFlat_uhfa1")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_v1v44")

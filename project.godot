@@ -13,3 +13,12 @@ config_version=5
 config/name="distopia-corp"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Laws="*res://scripts/Laws.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720

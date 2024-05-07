@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=3 uid="uid://tylaqnnf8phc"]
+
+[ext_resource type="Theme" uid="uid://c120uf7penhrs" path="res://assets/theme.tres" id="1_kl3uy"]
+[ext_resource type="Script" path="res://scripts/law_card.gd" id="2_c5c0m"]
+[ext_resource type="Texture2D" uid="uid://d6jrbc4qqyku" path="res://icon.svg" id="3_8v250"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hi8v5"]
+font_size = 32
+shadow_size = 9
+shadow_color = Color(0, 0, 0, 0.654902)
+shadow_offset = Vector2(1, 5)
+
+[node name="Law_card" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kl3uy")
+script = ExtResource("2_c5c0m")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.5
+offset_top = -276.5
+offset_right = 194.5
+offset_bottom = 276.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kl3uy")
+
+[node name="vbox" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="header" type="VBoxContainer" parent="PanelContainer/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.26
+
+[node name="Label" type="Label" parent="PanelContainer/vbox/header"]
+layout_mode = 2
+text = "Law title"
+label_settings = SubResource("LabelSettings_hi8v5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/vbox/header"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="rich_sat" type="TextureProgressBar" parent="PanelContainer/vbox/header/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+value = 59.0
+fill_mode = 3
+nine_patch_stretch = true
+stretch_margin_left = 64
+stretch_margin_top = 64
+texture_under = ExtResource("3_8v250")
+texture_progress = ExtResource("3_8v250")
+tint_under = Color(0, 0, 0, 1)
+
+[node name="poor_sat" type="TextureProgressBar" parent="PanelContainer/vbox/header/HBoxContainer"]
+layout_mode = 2
+value = 35.0
+fill_mode = 3
+nine_patch_stretch = true
+stretch_margin_left = 64
+stretch_margin_top = 64
+texture_under = ExtResource("3_8v250")
+texture_progress = ExtResource("3_8v250")
+tint_under = Color(0, 0, 0, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/vbox/PanelContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/vbox/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/vbox/PanelContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_8v250")
+stretch_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/vbox"]
+layout_mode = 2
+
+[node name="deny" type="Button" parent="PanelContainer/vbox/HBoxContainer"]
+layout_mode = 2
+text = "Deny"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/vbox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="aprove" type="Button" parent="PanelContainer/vbox/HBoxContainer"]
+layout_mode = 2
+text = "Aprove"
+
+[connection signal="button_up" from="PanelContainer/vbox/HBoxContainer/deny" to="." method="_on_deny_button_up"]
+[connection signal="button_up" from="PanelContainer/vbox/HBoxContainer/aprove" to="." method="_on_aprove_button_up"]
