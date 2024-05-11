@@ -20,7 +20,22 @@ grow_vertical = 2
 theme = ExtResource("1_kl3uy")
 script = ExtResource("2_c5c0m")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -268.0
+offset_right = 209.0
+offset_bottom = 277.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -28,31 +43,33 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -194.5
-offset_top = -276.5
+offset_top = -257.0
 offset_right = 194.5
-offset_bottom = 276.5
+offset_bottom = 257.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_kl3uy")
 
-[node name="vbox" type="VBoxContainer" parent="PanelContainer"]
+[node name="vbox" type="VBoxContainer" parent="Panel/PanelContainer"]
 layout_mode = 2
 
-[node name="header" type="VBoxContainer" parent="PanelContainer/vbox"]
+[node name="header" type="VBoxContainer" parent="Panel/PanelContainer/vbox"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.26
 
-[node name="Label" type="Label" parent="PanelContainer/vbox/header"]
+[node name="title" type="Label" parent="Panel/PanelContainer/vbox/header"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Law title"
+text = "Lorem ipsum"
 label_settings = SubResource("LabelSettings_hi8v5")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/vbox/header"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/PanelContainer/vbox/header"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="rich_sat" type="TextureProgressBar" parent="PanelContainer/vbox/header/HBoxContainer"]
+[node name="rich_sat" type="TextureProgressBar" parent="Panel/PanelContainer/vbox/header/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
@@ -65,7 +82,8 @@ texture_under = ExtResource("3_8v250")
 texture_progress = ExtResource("3_8v250")
 tint_under = Color(0, 0, 0, 1)
 
-[node name="poor_sat" type="TextureProgressBar" parent="PanelContainer/vbox/header/HBoxContainer"]
+[node name="poor_sat" type="TextureProgressBar" parent="Panel/PanelContainer/vbox/header/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 value = 35.0
 fill_mode = 3
@@ -76,37 +94,39 @@ texture_under = ExtResource("3_8v250")
 texture_progress = ExtResource("3_8v250")
 tint_under = Color(0, 0, 0, 1)
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/vbox"]
+[node name="PanelContainer" type="PanelContainer" parent="Panel/PanelContainer/vbox"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/vbox/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/PanelContainer/vbox/PanelContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/vbox/PanelContainer/VBoxContainer"]
+[node name="description" type="RichTextLabel" parent="Panel/PanelContainer/vbox/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+text = "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/vbox/PanelContainer/VBoxContainer"]
+[node name="image" type="TextureRect" parent="Panel/PanelContainer/vbox/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("3_8v250")
 stretch_mode = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/vbox"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/PanelContainer/vbox"]
 layout_mode = 2
 
-[node name="deny" type="Button" parent="PanelContainer/vbox/HBoxContainer"]
+[node name="deny" type="Button" parent="Panel/PanelContainer/vbox/HBoxContainer"]
 layout_mode = 2
 text = "Deny"
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/vbox/HBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Panel/PanelContainer/vbox/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="aprove" type="Button" parent="PanelContainer/vbox/HBoxContainer"]
+[node name="aprove" type="Button" parent="Panel/PanelContainer/vbox/HBoxContainer"]
 layout_mode = 2
 text = "Aprove"
 
-[connection signal="button_up" from="PanelContainer/vbox/HBoxContainer/deny" to="." method="_on_deny_button_up"]
-[connection signal="button_up" from="PanelContainer/vbox/HBoxContainer/aprove" to="." method="_on_aprove_button_up"]
+[connection signal="button_up" from="Panel/PanelContainer/vbox/HBoxContainer/deny" to="." method="_on_deny_button_up"]
+[connection signal="button_up" from="Panel/PanelContainer/vbox/HBoxContainer/aprove" to="." method="_on_aprove_button_up"]
